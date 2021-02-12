@@ -1,1 +1,1 @@
-# BIg_Omega_Project
+# Big_Omega_Project

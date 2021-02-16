@@ -10,6 +10,8 @@ using namespace std;
 int main()
 {
     SCHOOL school;
-    insertNewStudent(school);
-    printStudent(school);
+    do
+    {
+
+    } while (mainMenu(school));
 }

@@ -32,6 +32,7 @@ struct NAMES {
 };
 
 struct STUDENT {
+	int id;
 	NAMES name;
 	short int age;
 	char grade;

@@ -3,11 +3,16 @@
 #include <vector>
 #include "BackEnd.h"
 using namespace std;
-
+int idSt = 0;
+int idTeach = 0;
+int idTeam = 0;
+int idSch = 1;
 STUDENT makeNewStudent()
 {
 	int temp;
 	STUDENT student;
+	student.id = idSt;
+	idSt++;
 	cin >> student.name.firstName;
 	cin >> student.name.lastName;
 	cin >> student.age;

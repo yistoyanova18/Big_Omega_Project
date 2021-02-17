@@ -18,6 +18,9 @@ struct TIME {
 	short int s;
 	short int m;
 	short int h;
+	short int d;
+	short int mo;
+	short int y;
 };
 enum ROLE {
 	SCRUM_TRAINER,

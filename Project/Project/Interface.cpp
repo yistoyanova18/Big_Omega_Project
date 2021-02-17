@@ -113,9 +113,39 @@ bool mainMenu(SCHOOL& sch)
 		return true;
 		break;
 	case 5:
+		cout << "Multiple teachers?";
+		cin >> temp;
+		if (temp)
+		{
+			cout << "How many?\n"; cin >> temp;
+			for (size_t i = 0; i < temp; i++)
+			{
+				insertNewTeacher(sch);
+			}
+		}
+		else
+		{
+			insertNewTeacher(sch);
+		}
+		system("CLS");
 		return true;
 		break;
 	case 6:
+		cout << "Multiple teams?";
+		cin >> temp;
+		if (temp)
+		{
+			cout << "How many?\n"; cin >> temp;
+			for (size_t i = 0; i < temp; i++)
+			{
+				insertNewTeam(sch);
+			}
+		}
+		else
+		{
+			insertNewTeam(sch);
+		}
+		system("CLS");
 		return true;
 		break;
 	case 7:

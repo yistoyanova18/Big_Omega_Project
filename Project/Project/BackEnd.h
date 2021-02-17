@@ -45,11 +45,13 @@ struct STUDENT {
 };
 
 struct TEACHER {
+	int id;
 	NAMES name;
 	string email;
 };
 
 struct TEAM {
+	int id;
 	TEACHER teacher;
 	vector<STUDENT> participants;
 	string desc;//desc = description

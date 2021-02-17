@@ -51,6 +51,53 @@ void printStudent(SCHOOL& sch,size_t num)
 	cout << sch.students[num].email << endl;
 }
 
+void printTeacher(SCHOOL& sch, size_t num)
+{
+	cout << "ID: "; cout<< sch.teachers[num].id;
+	cout << endl << sch.teachers[num].name.firstName<<" "<<sch.teachers[num].name.lastName;
+	cout << endl << sch.teachers[num].email;
+}
+void printTeam(SCHOOL& sch, size_t num)
+{
+	cout << "ID: "; sch.teams[num].id;
+	cout << endl <<"Creation Date:"<< sch.teams[num].dateOfCreation.d << "/" << sch.teams[num].dateOfCreation.mo << "/" << sch.teams[num].dateOfCreation.y<<"       ";
+	switch (sch.teams[num].status)
+	{
+	case IN_USE:
+		cout << "Team in use"; break;
+	case NOT_ACTIVE:
+		cout << "Team is inactive"; break;
+	case ARCHIVED:
+		cout << "Team is archived"; break;
+	default:
+		break;
+	}
+	cout << endl << sch.teams[num].desc;
+	cout << endl << "Teacher: " << sch.teams[num].teacher.name.firstName + " " + sch.teams[num].teacher.name.lastName;
+	cout << "\n-----------------";
+	for (size_t i = 0; i < sch.teams[num].participants.size(); i++)
+	{
+		cout << endl << sch.teams[num].participants[i].name.firstName+" "+ sch.teams[num].participants[i].name.lastName+"\nRole: ";
+		switch (sch.students[num].teamRole)
+		{
+		case SCRUM_TRAINER:
+			cout << "Scrum Trainer\n";
+			break;
+		case BACKEND_DEV:
+			cout << "Backend Developer\n";
+			break;
+		case FRONTEND_DEV:
+			cout << "Frontend Developer\n";
+			break;
+		case QA_ENGI:
+			cout << "QA Engineer\n";
+			break;
+		default:
+			break;
+		}
+	}
+}
+
 bool mainMenu(SCHOOL& sch)
 {
 	int temp;
@@ -61,13 +108,21 @@ bool mainMenu(SCHOOL& sch)
 	cout << "5. Add Teacher/s\n";
 	cout << "6. Add Team/s\n";
 	cout << "7. Add School\n";
-	cout << "0. Exit\n";
+	cout << "0. Exit\n\n:";
 	cin >> temp;
 	switch (temp)
 	{
 	case 1:
-		cout << "Multiple students? "; cin >> temp;
-		if (temp)
+		cout << "0.One/1.Multiple/2.All students? "; cin >> temp;
+		if (temp == 2)
+		{
+			for (size_t i = 0; i < sch.students.size(); i++)
+			{
+				printStudent(sch, i);
+				cout << "------------------\n";
+			}
+		}
+		else if (temp)
 		{
 			int a;
 			cout << "How many? "; cin >> temp;
@@ -75,7 +130,7 @@ bool mainMenu(SCHOOL& sch)
 			{
 				cout << "ID: "; cin >> a;
 				printStudent(sch, a);
-				wcout << L"------------------\n";
+				cout << "------------------\n";
 			}
 			cout << "END(Press a button to go back to main menu)";
 		}
@@ -89,9 +144,61 @@ bool mainMenu(SCHOOL& sch)
 		return true;
 		break;
 	case 2:
+		cout << "0.One/1.Multiple/2.All teachers? "; cin >> temp;
+		if (temp == 2)
+		{
+			for (size_t i = 0; i < sch.teachers.size(); i++)
+			{
+				printTeacher(sch, i);
+			}
+		}
+		else if (temp)
+		{
+			int a;
+			cout << "How many? "; cin >> temp;
+			for (size_t i = 0; i < temp; i++)
+			{
+				cout << "ID: "; cin >> a;
+				printTeacher(sch, a);
+				cout << "------------------\n";
+			}
+		}
+		else
+		{
+			cout << "ID: "; cin >> temp;
+			printTeacher(sch, temp);
+		}
+		_getch();
+		system("CLS");
 		return true;
 		break;
 	case 3:
+		cout << "0.One/1.Multiple/2.All teams? "; cin >> temp;
+		if (temp == 2)
+		{
+			for (size_t i = 0; i < sch.teams.size(); i++)
+			{
+				printTeam(sch, i);
+			}
+		}
+		else if (temp)
+		{
+			int a;
+			cout << "How many? "; cin >> temp;
+			for (size_t i = 0; i < temp; i++)
+			{
+				cout << "ID: "; cin >> a;
+				printTeam(sch, a);
+				cout << "------------------\n";
+			}
+		}
+		else
+		{
+			cout << "ID: "; cin >> temp;
+			printTeam(sch, temp);
+		}
+		_getch();
+		system("CLS");
 		return true;
 		break;
 	case 4:

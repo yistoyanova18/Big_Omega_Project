@@ -72,6 +72,8 @@ void insertNewStudent(SCHOOL& sch, size_t n)
 TEACHER makeNewTeacher()
 {
 	TEACHER t;
+	t.id = idTeach;
+	idTeach++;
 	cin >> t.name.firstName;
 	cin >> t.name.lastName;
 	cin >> t.email;
@@ -87,6 +89,8 @@ void insertNewTeacher(SCHOOL& sch, size_t n)
 TEAM makeNewTeam(SCHOOL& sch)
 {
 	TEAM team;
+	team.id = idTeam;
+	idTeam++;
 	int temp;
 	cout << "ID of teacher: "; cin >> temp;
 	team.teacher = sch.teachers[temp];

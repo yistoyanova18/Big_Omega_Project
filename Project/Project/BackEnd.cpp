@@ -1,4 +1,5 @@
 #include <iostream>
+#include <fstream>
 #include <string>
 #include <vector>
 #include <ctime>
@@ -8,6 +9,78 @@ int idSt = 0;
 int idTeach = 0;
 int idTeam = 0;
 int idSch = 1;
+
+string Add0BeforeIntSmallerThan10(int num)
+{
+	string st = "";
+	if (num < 10 and num >= 0)
+		st += L'0';
+	st += to_string(num);
+	return st;
+}
+bool LOG::openFile(string filename)
+{
+	logFile.open(filename, ios::out | ios::app);
+	return logFile.is_open();
+}
+void LOG::closeFile()
+{
+	logFile.close();
+}
+
+void LOG::createLog(string msg, SEVERITY sev)
+{
+	tm ltm = LOGTIME::getTimeDate();
+	LOGTIME time = { ltm.tm_sec,ltm.tm_min,ltm.tm_hour,ltm.tm_mday,ltm.tm_mon,ltm.tm_year + 1900 };
+	string sever;
+	switch (sev)
+	{
+	case INFO:
+		sever = "INFO    ";
+		break;
+	case WARNING:
+		sever = "WARNING ";
+		break;
+	case ERROR:
+		sever = "ERROR   ";
+		break;
+	case CRITICAL:
+		sever = "CRITICAL";
+		break;
+	case DEBUG:
+		sever = "DEBUG   ";
+		break;
+	default:
+		break;
+	}
+	if (sev <= logLevel)
+		logFile << Add0BeforeIntSmallerThan10(time.y) << '-' << Add0BeforeIntSmallerThan10(time.mo) << '-' << Add0BeforeIntSmallerThan10(time.md) << " "
+		<< Add0BeforeIntSmallerThan10(time.h) << ':' << Add0BeforeIntSmallerThan10(time.m) << ':' << Add0BeforeIntSmallerThan10(time.s) << " "
+		<< sever << " "
+		<< msg << endl;
+}
+
+void LOG::debug(string msg, SEVERITY sev)
+{
+	LOG::createLog(msg, sev);
+}
+void LOG::info(string msg, SEVERITY sev)
+{
+	LOG::createLog(msg, sev);
+}
+void LOG::warning(string msg, SEVERITY sev)
+{
+	LOG::createLog(msg, sev);
+}
+void LOG::error(string msg, SEVERITY sev)
+{
+	LOG::createLog(msg, sev);
+}
+void LOG::critical(string msg, SEVERITY sev)
+{
+	LOG::createLog(msg, sev);
+}
+
 STUDENT makeNewStudent()
 {
 	int temp;

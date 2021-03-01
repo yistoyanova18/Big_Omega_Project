@@ -213,3 +213,80 @@ void insertNewTeam(SCHOOL& sch, size_t n)
 		sch.teams.push_back(makeNewTeam(sch));
 	}
 }
+
+STUDENT editStudent(STUDENT student)
+{
+	STUDENT newStudent = student;
+	int temp;
+	cout << "What do you want to edit?\n1. Name\n2. Age\n3. Grade\n4. Status\n5.Team Role\n6. Email\n\n:";
+	do
+	{
+		switch (temp)
+		{
+		case 1:
+			cout << "\n";
+			cin >> newStudent.name.firstName >> newStudent.name.lastName;
+			break;
+		case 2:
+			cin >> newStudent.age;
+			break;
+		case 3:
+			cin >> newStudent.grade;
+			break;
+		case 4:
+			cin >> newStudent.status;
+			switch (newStudent.status)
+			{
+			case "0":
+				newStudent.status = "Free";
+				break;
+			case "1":
+				newStudent.status = "In team";
+				break;
+			case "2":
+				newStudent.status = "Unavailable";
+				break;
+			case "3":
+				newStudent.status = "Looking";
+				break;
+			default:
+				log.error("Incorrect input in student edit func");
+				break;
+			}
+			break;
+		case 5:
+			cin >> newStudent.teamRole;
+			switch (newStudent.teamRole)
+			{
+			case "0":
+				newStudent.teamRole = "Scrum trainer";
+				break;
+			case "1":
+				newStudent.teamRole = "Backend developer";
+				break;
+			case "2":
+				newStudent.teamRole = "Frontend developer";
+				break;
+			case "3":
+				newStudent.teamRole = "QA Engineer";
+				break;
+			default:
+				log.error("Incorrect input in student edit func");
+				break;
+			}
+			break;
+		case 6:
+			cin >> newStudent.email;
+			break;
+		default:
+			log.error("Incorrect input in student edit func");
+			break;
+		}
+		cout << "Do you want to edit something else?(0/1)"; cin >> temp;
+	} while (temp);
+	return newStudent;
+}
+void saveEditedStudent(SCHOOL& sch, size_t n)
+{
+	sch.students[n] = editStudent(sch.students[n]);
+}

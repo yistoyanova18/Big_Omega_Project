@@ -33,12 +33,7 @@ enum STATUS {
 	NOT_ACTIVE,
 	ARCHIVED
 };
-enum STATE {
-	FREE,
-	IN_TEAM,
-	UNAVAILABLE,
-	LOOKING
-};
+
 struct TIME {
 	short int s;
 	short int m;
@@ -64,8 +59,8 @@ struct STUDENT {
 	NAMES name;
 	short int age;
 	char grade;
-	STATE status;
-	ROLE teamRole;
+	string status;
+	string teamRole;
 	string email;
 };
 
@@ -121,5 +116,20 @@ void insertNewTeacher(SCHOOL& sch, size_t n = 1);
 TEAM makeNewTeam(SCHOOL& sch);
 //Inserts new team into school's team array
 void insertNewTeam(SCHOOL& sch, size_t n = 1);
+//Edit an existing student
+STUDENT editStudent(STUDENT student);
+//Save edited student
+void saveEditedStudent(SCHOOL& sch, size_t n);
+//Edit an existing teacher
+TEACHER editTeacher(TEACHER teacher);
+//Save edited teacher
+void saveEditedTeacher(SCHOOL& sch, size_t n);
+//Edit an existing team
+TEAM editTeam(TEAM team);
+//Save edited team
+void saveEditedTeam(SCHOOL& sch, size_t n);
 
+void deleteStudent(SCHOOL& sch);
+void deleteTeacher(SCHOOL& sch);
+void deleteTeam(SCHOOL& sch);
 string Add0BeforeIntSmallerThan10(int num);

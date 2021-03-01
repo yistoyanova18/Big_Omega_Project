@@ -1,4 +1,5 @@
-4
+2
+1
 1
 5
 Georgi Petrov
@@ -31,11 +32,13 @@ A
 1
 3
 PRadko@gmail.com
-5
+2
+2
 0
 Angel Petrov
 APetrov@gmail.com
-6
+2
+3
 0
 0
 2

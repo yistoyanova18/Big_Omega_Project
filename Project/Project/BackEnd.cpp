@@ -95,16 +95,16 @@ STUDENT makeNewStudent()
 	switch (temp)
 	{
 	case 0:
-		student.status = FREE;
+		student.status = "Free";
 		break;
 	case 1:
-		student.status = IN_TEAM;
+		student.status = "In team";
 		break;
 	case 2:
-		student.status = UNAVAILABLE;
+		student.status = "Unavailable";
 		break;
 	case 3:
-		student.status = LOOKING;
+		student.status = "Looking";
 		break;
 	default:
 		throw "Incorrect input";
@@ -114,16 +114,16 @@ STUDENT makeNewStudent()
 	switch (temp)
 	{
 	case 0:
-		student.teamRole = SCRUM_TRAINER;
+		student.teamRole = "Scrum trainer";
 		break;
 	case 1:
-		student.teamRole = BACKEND_DEV;
+		student.teamRole = "Backend developer";
 		break;
 	case 2:
-		student.teamRole = FRONTEND_DEV;
+		student.teamRole = "Frontend developer";
 		break;
 	case 3:
-		student.teamRole = QA_ENGI;
+		student.teamRole = "QA Engineer";
 		break;
 	default:
 		throw "Incorrect input";
@@ -152,6 +152,7 @@ TEACHER makeNewTeacher()
 	cin >> t.email;
 	return t;
 }
+
 void insertNewTeacher(SCHOOL& sch, size_t n)
 {
 	for (size_t i = 0; i < n; i++)
@@ -159,6 +160,7 @@ void insertNewTeacher(SCHOOL& sch, size_t n)
 		sch.teachers.push_back(makeNewTeacher());
 	}
 }
+
 TEAM makeNewTeam(SCHOOL& sch)
 {
 	TEAM team;
@@ -184,7 +186,7 @@ TEAM makeNewTeam(SCHOOL& sch)
 	team.dateOfCreation.h = ltm->tm_hour;
 	team.dateOfCreation.d = ltm->tm_mday;
 	team.dateOfCreation.mo = ltm->tm_mon;
-	team.dateOfCreation.y = ltm->tm_year;
+	team.dateOfCreation.y = (ltm->tm_year+1900);
 	cin >> temp;
 	switch (temp)
 	{
@@ -203,6 +205,7 @@ TEAM makeNewTeam(SCHOOL& sch)
 	}
 	return team;
 }
+
 void insertNewTeam(SCHOOL& sch, size_t n)
 {
 	for (size_t i = 0; i < n; i++)

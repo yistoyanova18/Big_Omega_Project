@@ -14,41 +14,8 @@ void printStudent(SCHOOL& sch,size_t num)
 	cout << " " << sch.students[num].name.lastName << "    ";
 	cout << sch.students[num].grade<<" Class";
 	cout << endl << sch.students[num].age << endl;
-	switch (sch.students[num].status)
-	{
-	case FREE:
-		cout << sch.students[num].name.lastName << " has no team\n";
-		break;
-	case IN_TEAM:
-		cout << sch.students[num].name.lastName << " has a team\n";
-		break;
-	case UNAVAILABLE:
-		cout << sch.students[num].name.lastName << " is unavailable\n";
-		break;
-	case LOOKING:
-		cout << sch.students[num].name.lastName << " is looking for a team\n";
-		break;
-	default:
-		break;
-	}
-	cout << "Prefered Role: ";
-	switch (sch.students[num].teamRole)
-	{
-	case SCRUM_TRAINER:
-		cout << "Scrum Trainer\n";
-		break;
-	case BACKEND_DEV:
-		cout << "Backend Developer\n";
-		break;
-	case FRONTEND_DEV:
-		cout << "Frontend Developer\n";
-		break;
-	case QA_ENGI:
-		cout << "QA Engineer\n";
-		break;
-	default:
-		break;
-	}
+	cout << "Status: " + sch.students[num].status + "\n";
+	cout << "Prefered Role: "+ sch.students[num].teamRole+"\n";
 	cout << sch.students[num].email << endl;
 }
 
@@ -58,6 +25,7 @@ void printTeacher(SCHOOL& sch, size_t num)
 	cout << endl << sch.teachers[num].name.firstName<<" "<<sch.teachers[num].name.lastName;
 	cout << endl << sch.teachers[num].email;
 }
+
 void printTeam(SCHOOL& sch, size_t num)
 {
 	cout << "ID: "; cout << sch.teams[num].id;
@@ -78,217 +46,270 @@ void printTeam(SCHOOL& sch, size_t num)
 	cout << "\n-----------------";
 	for (size_t i = 0; i < sch.teams[num].participants.size(); i++)
 	{
-		cout << endl << sch.teams[num].participants[i].name.firstName+" "+ sch.teams[num].participants[i].name.lastName+"\nRole: ";
-		switch (sch.students[num].teamRole)
-		{
-		case SCRUM_TRAINER:
-			cout << "Scrum Trainer\n";
-			break;
-		case BACKEND_DEV:
-			cout << "Backend Developer\n";
-			break;
-		case FRONTEND_DEV:
-			cout << "Frontend Developer\n";
-			break;
-		case QA_ENGI:
-			cout << "QA Engineer\n";
-			break;
-		default:
-			break;
-		}
+		cout << endl << sch.teams[num].participants[i].name.firstName+" "+ sch.teams[num].participants[i].name.lastName+"\nRole: "+ sch.teams[num].participants[i].teamRole + "\n";
 	}
 }
 
 bool mainMenu(SCHOOL& sch, LOG &log)
 {
 	size_t temp;
-	cout << "1. Print Student/s\n";
-	cout << "2. Print Teacher/s\n";
-	cout << "3. Print Team/s\n";
-	cout << "4. Add Student/s\n";
-	cout << "5. Add Teacher/s\n";
-	cout << "6. Add Team/s\n";
-	//cout << "7. Add School\n";
-	cout << "0. Exit\n\n:";
+	cout << "---------------+\n";
+	cout << "  1. Printing  |\n";
+	cout << "  2. Adding    |\n";
+	cout << "  3. Editing   |\n";
+	cout << "  4. Deletion  |\n";
+	cout << "  0. Exit      |\n---------------+\n:";
 	cin >> temp;
+	system("CLS");
 	switch (temp)
 	{
 	case 1:
-		cout << "0.One/1.Multiple/2.All students? "; cin >> temp;
+		cout << "1. Print Student/s\n";
+		cout << "2. Print Teacher/s\n";
+		cout << "3. Print Team/s\n";
+		cout << "0. Exit\n\n:";
+		cin >> temp;
 		switch (temp)
 		{
-		case 0:
-			cout << "ID: "; cin >> temp;
-			printStudent(sch, temp);
-			log.info("Successfully printed one student");
-			break;
 		case 1:
-			int a;
-			cout << "How many? "; cin >> temp;
-			for (size_t i = 0; i < temp; i++)
+			cout << "0.One/1.Multiple/2.All students? "; cin >> temp;
+			switch (temp)
 			{
-				cout << "ID: "; cin >> a;
-				printStudent(sch, a);
-				cout << "------------------\n";
+			case 0:
+				cout << "ID: "; cin >> temp;
+				printStudent(sch, temp);
+				log.info("Successfully printed one student");
+				break;
+			case 1:
+				int a;
+				cout << "How many? "; cin >> temp;
+				for (size_t i = 0; i < temp; i++)
+				{
+					cout << "ID: "; cin >> a;
+					printStudent(sch, a);
+					cout << "\n------------------";
+				}
+				log.info("Successfully printed students");
+				break;
+			case 2:
+				for (size_t i = 0; i < sch.students.size(); i++)
+				{
+					printStudent(sch, i);
+					cout << "\n------------------";
+				}
+				log.info("Successfully printed all students");
+				break;
+			default:
+				log.error("Incorrect input in student print func");
+				log.info("Going back to main menu");
+				return true;
+				break;
 			}
-			log.info("Successfully printed students");
+			cout << "\nPress a button to go back to main menu";
+			_getch();
+			system("CLS");
+			return true;
 			break;
 		case 2:
-			for (size_t i = 0; i < sch.students.size(); i++)
+			cout << "0.One/1.Multiple/2.All teachers? "; cin >> temp;
+			switch (temp)
 			{
-				printStudent(sch, i);
-				cout << "------------------\n";
+			case 0:
+				cout << "ID: "; cin >> temp;
+				printTeacher(sch, temp);
+				log.info("Successfully printed one teacher");
+				break;
+			case 1:
+				int a;
+				cout << "How many? "; cin >> temp;
+				for (size_t i = 0; i < temp; i++)
+				{
+					cout << "ID: "; cin >> a;
+					printTeacher(sch, a);
+					cout << "\n------------------";
+				}
+				log.info("Successfully printed teachers");
+				break;
+			case 2:
+				for (size_t i = 0; i < sch.teachers.size(); i++)
+				{
+					printTeacher(sch, i);
+					cout << "\n------------------";
+				}
+				log.info("Successfully printed all teachers");
+				break;
+			default:
+				log.error("Incorrect input in teacher print");
+				log.info("Going back to main menu");
+				return true;
+				break;
 			}
-			log.info("Successfully printed all students");
+			cout << "\nPress a button to go back to main menu";
+			_getch();
+			system("CLS");
+			return true;
+			break;
+		case 3:
+			cout << "0.One/1.Multiple/2.All teams? "; cin >> temp;
+			switch (temp)
+			{
+			case 0:
+				cout << "ID: "; cin >> temp;
+				printTeam(sch, temp);
+				log.info("Successfully printed one team");
+				break;
+			case 1:
+				int a;
+				cout << "How many? "; cin >> temp;
+				for (size_t i = 0; i < temp; i++)
+				{
+					cout << "ID: "; cin >> a;
+					printTeam(sch, a);
+					cout << "\n------------------";
+				}
+				log.info("Successfully printed teams");
+				break;
+			case 2:
+				for (size_t i = 0; i < sch.teams.size(); i++)
+				{
+					printTeam(sch, i);
+					cout << "\n------------------";
+				}
+				log.info("Successfully printed all teams");
+				break;
+			default:
+				break;
+			}
+			cout << "\nPress a button to go back to main menu";
+			_getch();
+			system("CLS");
+			return true;
+			break;
+		case 0:
+			log.info("Going back to main menu");
+			return true;
 			break;
 		default:
-			log.error("Incorrect input in student print func");
+			log.error("Incorrect input in printing menu");
+			log.info("Going back to main menu");
+			return true;
 			break;
 		}
-		cout << "\nPress a button to go back to main menu";
-		_getch();
-		system("CLS");
-		return true;
 		break;
 	case 2:
-		cout << "0.One/1.Multiple/2.All teachers? "; cin >> temp;
-		switch (temp)
-		{
-		case 0:
-			cout << "ID: "; cin >> temp;
-			printTeacher(sch, temp);
-			log.info("Successfully printed one teacher");
-			break;
-		case 1:
-			int a;
-			cout << "How many? "; cin >> temp;
-			for (size_t i = 0; i < temp; i++)
-			{
-				cout << "ID: "; cin >> a;
-				printTeacher(sch, a);
-				cout << "------------------\n";
-			}
-			log.info("Successfully printed teachers");
-			break;
-		case 2:
-			for (size_t i = 0; i < sch.teachers.size(); i++)
-			{
-				printTeacher(sch, i);
-			}
-			log.info("Successfully printed all teachers");
-			break;
-		default:
-			log.error("Incorrect input in teacher print");
-			break;
-		}
-		cout << "\nPress a button to go back to main menu";
-		_getch();
-		system("CLS");
-		return true;
-		break;
-	case 3:
-		cout << "0.One/1.Multiple/2.All teams? "; cin >> temp;
-		switch (temp)
-		{
-		case 0:
-			cout << "ID: "; cin >> temp;
-			printTeam(sch, temp);
-			log.info("Successfully printed one team");
-			break;
-		case 1:
-			int a;
-			cout << "How many? "; cin >> temp;
-			for (size_t i = 0; i < temp; i++)
-			{
-				cout << "ID: "; cin >> a;
-				printTeam(sch, a);
-				cout << "------------------\n";
-			}
-			log.info("Successfully printed teams");
-			break;
-		case 2:
-			for (size_t i = 0; i < sch.teams.size(); i++)
-			{
-				printTeam(sch, i);
-			}
-			log.info("Successfully printed all teams");
-			break;
-		default:
-			break;
-		}
-		cout << "\nPress a button to go back to main menu";
-		_getch();
-		system("CLS");
-		return true;
-		break;
-	case 4:
-		cout << "Multiple students? (0/1)";
+		cout << "1. Add Student/s\n";
+		cout << "2. Add Teacher/s\n";
+		cout << "3. Add Team/s\n";
+		cout << "0. Exit\n\n:";
 		cin >> temp;
-		if (temp)
+		switch (temp)
 		{
-			cout << "How many?\n"; cin >> temp;
-			for (size_t i = 0; i < temp; i++)
+		case 1:
+			cout << "Multiple students? (0/1)";
+			cin >> temp;
+			if (temp)
+			{
+				cout << "How many?\n"; cin >> temp;
+				for (size_t i = 0; i < temp; i++)
+				{
+					insertNewStudent(sch);
+				}
+				log.info("Successfully created students");
+			}
+			else
 			{
 				insertNewStudent(sch);
+				log.info("Successfully created one teacher");
 			}
-			log.info("Successfully created students");
-		}
-		else
-		{
-			insertNewStudent(sch);
-			log.info("Successfully created one teacher");
-		}
-		system("CLS");
-		return true;
-		break;
-	case 5:
-		cout << "Multiple teachers?(0/1)";
-		cin >> temp;
-		if (temp)
-		{
-			cout << "How many?\n"; cin >> temp;
-			for (size_t i = 0; i < temp; i++)
+			system("CLS");
+			return true;
+			break;
+		case 2:
+			cout << "Multiple teachers?(0/1)";
+			cin >> temp;
+			if (temp)
+			{
+				cout << "How many?\n"; cin >> temp;
+				for (size_t i = 0; i < temp; i++)
+				{
+					insertNewTeacher(sch);
+				}
+				log.info("Successfully created teachers");
+			}
+			else
 			{
 				insertNewTeacher(sch);
+				log.info("Successfully created one teacher");
 			}
-			log.info("Successfully created teachers");
-		}
-		else
-		{
-			insertNewTeacher(sch);
-			log.info("Successfully created one teacher");
-		}
-		system("CLS");
-		return true;
-		break;
-	case 6:
-		cout << "Multiple teams?(0/1)";
-		cin >> temp;
-		if (temp)
-		{
-			cout << "How many?\n"; cin >> temp;
-			for (size_t i = 0; i < temp; i++)
+			system("CLS");
+			return true;
+			break;
+		case 3:
+			cout << "Multiple teams?(0/1)";
+			cin >> temp;
+			if (temp)
+			{
+				cout << "How many?\n"; cin >> temp;
+				for (size_t i = 0; i < temp; i++)
+				{
+					insertNewTeam(sch);
+				}
+				log.info("Successfully created teams");
+			}
+			else
 			{
 				insertNewTeam(sch);
+				log.info("Successfully created one team");
 			}
-			log.info("Successfully created teams");
+			system("CLS");
+			return true;
+			break;
+		case 0:
+			log.info("Going back to main menu\n");
+			return true;
+			break;
+		default:
+			log.error("Incorrect input in adding menu");
+			log.info("Going back to main menu");
+			return true;
+			break;
 		}
-		else
-		{
-			insertNewTeam(sch);
-			log.info("Successfully created one team");
-		}
-		system("CLS");
-		return true;
 		break;
-	case 7:
-		return true;
+	case 3:
+		cout << "1. Edit Student\n";
+		cout << "2. Edit Teacher\n";
+		cout << "3. Edit Team\n";
+		cout << "0. Exit\n\n:";
+		cin >> temp;
+		switch (temp)
+		{
+		case 1:
+			return true;
+			break;
+		case 2:
+			return true;
+			break;
+		case 3:
+			return true;
+			break;
+		case 0:
+			log.info("Going back to main menu\n");
+			return true;
+			break;
+		default:
+			log.error("Incorrect input in editing menu");
+			log.info("Going back to main menu");
+			return true;
+			break;
+		}
 		break;
 	case 0:
+		log.info("Exiting program\n");
 		return false;
 		break;
 	default:
-		log.error("Incorrect input in main menu");
+		log.error("Incorrect input in main menu menu");
+		log.info("Going back to main menu");
 		return true;
 		break;
 	}

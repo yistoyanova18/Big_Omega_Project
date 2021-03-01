@@ -117,9 +117,9 @@ TEAM makeNewTeam(SCHOOL& sch);
 //Inserts new team into school's team array
 void insertNewTeam(SCHOOL& sch, size_t n = 1);
 //Edit an existing student
-STUDENT editStudent(STUDENT student);
+STUDENT editStudent(STUDENT student, LOG& log);
 //Save edited student
-void saveEditedStudent(SCHOOL& sch, size_t n);
+void saveEditedStudent(SCHOOL& sch, size_t n,LOG& log);
 //Edit an existing teacher
 TEACHER editTeacher(TEACHER teacher);
 //Save edited teacher

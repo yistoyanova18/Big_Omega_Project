@@ -214,13 +214,14 @@ void insertNewTeam(SCHOOL& sch, size_t n)
 	}
 }
 
-STUDENT editStudent(STUDENT student)
+STUDENT editStudent(STUDENT student, LOG& log)
 {
 	STUDENT newStudent = student;
 	int temp;
 	cout << "What do you want to edit?\n1. Name\n2. Age\n3. Grade\n4. Status\n5.Team Role\n6. Email\n\n:";
 	do
 	{
+		cin >> temp;
 		switch (temp)
 		{
 		case 1:
@@ -234,19 +235,19 @@ STUDENT editStudent(STUDENT student)
 			cin >> newStudent.grade;
 			break;
 		case 4:
-			cin >> newStudent.status;
-			switch (newStudent.status)
+			cin >> temp;
+			switch (temp)
 			{
-			case "0":
+			case 0:
 				newStudent.status = "Free";
 				break;
-			case "1":
+			case 1:
 				newStudent.status = "In team";
 				break;
-			case "2":
+			case 2:
 				newStudent.status = "Unavailable";
 				break;
-			case "3":
+			case 3:
 				newStudent.status = "Looking";
 				break;
 			default:
@@ -255,19 +256,19 @@ STUDENT editStudent(STUDENT student)
 			}
 			break;
 		case 5:
-			cin >> newStudent.teamRole;
-			switch (newStudent.teamRole)
+			cin >> temp;
+			switch (temp)
 			{
-			case "0":
+			case 0:
 				newStudent.teamRole = "Scrum trainer";
 				break;
-			case "1":
+			case 1:
 				newStudent.teamRole = "Backend developer";
 				break;
-			case "2":
+			case 2:
 				newStudent.teamRole = "Frontend developer";
 				break;
-			case "3":
+			case 3:
 				newStudent.teamRole = "QA Engineer";
 				break;
 			default:
@@ -284,9 +285,10 @@ STUDENT editStudent(STUDENT student)
 		}
 		cout << "Do you want to edit something else?(0/1)"; cin >> temp;
 	} while (temp);
+	log.info("Successfully edited student");
 	return newStudent;
 }
-void saveEditedStudent(SCHOOL& sch, size_t n)
+void saveEditedStudent(SCHOOL& sch, size_t n,LOG& log)
 {
-	sch.students[n] = editStudent(sch.students[n]);
+	sch.students[n] = editStudent(sch.students[n],log);
 }

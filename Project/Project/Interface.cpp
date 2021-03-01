@@ -284,6 +284,9 @@ bool mainMenu(SCHOOL& sch, LOG &log)
 		switch (temp)
 		{
 		case 1:
+			cout << "ID of student for editing: "; cin >> temp;
+			saveEditedStudent(sch, temp, log);
+			system("CLS");
 			return true;
 			break;
 		case 2:

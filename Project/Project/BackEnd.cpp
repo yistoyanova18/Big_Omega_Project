@@ -27,7 +27,6 @@ void LOG::closeFile()
 {
 	logFile.close();
 }
-
 void LOG::createLog(string msg, SEVERITY sev)
 {
 	tm ltm = LOGTIME::getTimeDate();
@@ -59,7 +58,6 @@ void LOG::createLog(string msg, SEVERITY sev)
 		<< sever << " "
 		<< msg << endl;
 }
-
 void LOG::debug(string msg, SEVERITY sev)
 {
 	LOG::createLog(msg, sev);
@@ -133,7 +131,6 @@ STUDENT makeNewStudent()
 	return student;
 
 }
-
 void insertNewStudent(SCHOOL& sch, size_t n)
 {
 	for (size_t i = 0; i < n; i++)
@@ -152,7 +149,6 @@ TEACHER makeNewTeacher()
 	cin >> t.email;
 	return t;
 }
-
 void insertNewTeacher(SCHOOL& sch, size_t n)
 {
 	for (size_t i = 0; i < n; i++)
@@ -204,7 +200,6 @@ TEAM makeNewTeam(SCHOOL& sch)
 	}
 	return team;
 }
-
 void insertNewTeam(SCHOOL& sch, size_t n)
 {
 	for (size_t i = 0; i < n; i++)
@@ -290,4 +285,28 @@ STUDENT editStudent(STUDENT student, LOG& log)
 void saveEditedStudent(SCHOOL& sch, size_t n,LOG& log)
 {
 	sch.students[n] = editStudent(sch.students[n],log);
+}
+
+TEACHER editTeacher(TEACHER teacher, LOG& log)
+{
+	TEACHER newTeacher = teacher;
+	int temp;
+	cout << "What do you want to edit?\n1.Name\n2.E-mail\n\n:"; cin >> temp;
+	switch (temp)
+	{
+	case 1:
+		cin >> newTeacher.name.firstName >> newTeacher.name.lastName;
+		break;
+	case 2:
+		cin >> newTeacher.email;
+		break;
+	default:
+		log.error("Incorrect input in teacher function");
+		break;
+	}
+	return newTeacher;
+}
+void saveEditedTeacher(SCHOOL& sch, size_t n, LOG& log)
+{
+	sch.teachers[n] = editTeacher(sch.teachers[n], log);
 }

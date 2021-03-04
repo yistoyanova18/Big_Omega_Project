@@ -121,9 +121,9 @@ STUDENT editStudent(STUDENT student, LOG& log);
 //Save edited student
 void saveEditedStudent(SCHOOL& sch, size_t n,LOG& log);
 //Edit an existing teacher
-TEACHER editTeacher(TEACHER teacher);
+TEACHER editTeacher(TEACHER teacher, LOG& log);
 //Save edited teacher
-void saveEditedTeacher(SCHOOL& sch, size_t n);
+void saveEditedTeacher(SCHOOL& sch, size_t n, LOG& log);
 //Edit an existing team
 TEAM editTeam(TEAM team);
 //Save edited team

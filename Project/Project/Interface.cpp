@@ -290,6 +290,9 @@ bool mainMenu(SCHOOL& sch, LOG &log)
 			return true;
 			break;
 		case 2:
+			cout << "ID of teacher for editing: "; cin >> temp;
+			saveEditedTeacher(sch, temp, log);
+			system("CLS");
 			return true;
 			break;
 		case 3:

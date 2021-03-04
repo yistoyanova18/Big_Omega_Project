@@ -174,19 +174,18 @@ TEAM makeNewTeam(SCHOOL& sch)
 	for (int i = 0; i < temp; i++)
 	{
 		cout << "ID of student: "; cin >> a;
-		team.participants.push_back(sch.students[a]);
+		sch.students[a].status = "In team";
+		team.participants.push_back(a);
 	}
 	cin >> team.desc;
-	time_t curr_time;
-	curr_time = time(NULL);
-	tm* ltm = new tm;
-	localtime_s(ltm,&curr_time);
-	team.dateOfCreation.s = ltm->tm_sec;
-	team.dateOfCreation.m = ltm->tm_min;
-	team.dateOfCreation.h = ltm->tm_hour;
-	team.dateOfCreation.d = ltm->tm_mday;
-	team.dateOfCreation.mo = ltm->tm_mon;
-	team.dateOfCreation.y = (ltm->tm_year+1900);
+
+	tm ltm = LOGTIME::getTimeDate();
+	team.dateOfCreation.s = ltm.tm_sec;
+	team.dateOfCreation.m = ltm.tm_min;
+	team.dateOfCreation.h = ltm.tm_hour;
+	team.dateOfCreation.d = ltm.tm_mday;
+	team.dateOfCreation.mo = ltm.tm_mon;
+	team.dateOfCreation.y = (ltm.tm_year+1900);
 	cin >> temp;
 	switch (temp)
 	{

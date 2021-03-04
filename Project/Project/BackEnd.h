@@ -73,7 +73,7 @@ struct TEACHER {
 struct TEAM {
 	int id;
 	TEACHER teacher;
-	vector<STUDENT> participants;
+	vector<int> participants;
 	string desc;//desc = description
 	TIME dateOfCreation;
 	STATUS status;

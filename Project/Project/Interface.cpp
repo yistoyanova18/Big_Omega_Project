@@ -46,7 +46,7 @@ void printTeam(SCHOOL& sch, size_t num)
 	cout << "\n-----------------";
 	for (size_t i = 0; i < sch.teams[num].participants.size(); i++)
 	{
-		cout << endl << sch.teams[num].participants[i].name.firstName+" "+ sch.teams[num].participants[i].name.lastName+"\nRole: "+ sch.teams[num].participants[i].teamRole + "\n";
+		cout << endl << sch.students[sch.teams[num].participants[i]].name.firstName+" "+ sch.students[sch.teams[num].participants[i]].name.lastName+"\nRole: "+ sch.students[sch.teams[num].participants[i]].teamRole + "\n";
 	}
 }
 

@@ -279,12 +279,12 @@ STUDENT editStudent(STUDENT student, LOG& log)
 		}
 		cout << "Do you want to edit something else?(0/1)"; cin >> temp;
 	} while (temp);
-	log.info("Successfully edited student");
 	return newStudent;
 }
 void saveEditedStudent(SCHOOL& sch, size_t n,LOG& log)
 {
 	sch.students[n] = editStudent(sch.students[n],log);
+	log.info("Successfully edited student");
 }
 
 TEACHER editTeacher(TEACHER teacher, LOG& log)
@@ -309,4 +309,54 @@ TEACHER editTeacher(TEACHER teacher, LOG& log)
 void saveEditedTeacher(SCHOOL& sch, size_t n, LOG& log)
 {
 	sch.teachers[n] = editTeacher(sch.teachers[n], log);
+	log.info("Successfully edited student");
+}
+
+TEAM editTeam(SCHOOL& sch, TEAM team, LOG& log)
+{
+	TEAM newTeam = team;
+	int temp;
+	cout << "What do you want to edit?\n1. Teacher\n2. Description\n3. Status\n4. Participants\n\n:"; cin >> temp;
+	switch (temp)
+	{
+	case 1:
+		cout << "ID of new teacher: "; cin >> temp;
+		newTeam.teacher = sch.teachers[temp];
+		break;
+	case 2:
+		cout << "New description: \n"; cin >> temp;
+		newTeam.desc = temp;
+		break;
+	case 3:
+		cout << "New Status(1,2,3): "; cin >> temp;
+		switch (temp)
+		{
+		case 1:
+			newTeam.status = STATUS::NOT_ACTIVE;
+			break;
+		case 2:
+			newTeam.status = STATUS::IN_USE;
+			break;
+		case 3:
+			newTeam.status = STATUS::ARCHIVED;
+			break
+		default:
+			log.error("Incorrect input in teacher edit function");
+			break;
+		}
+		break;
+	case 4:
+		int temp1;
+		cout << "Change student(ID in team) "; cin >> temp; cout << " with student(ID in school) "; cin >> temp1;
+		newTeam.participants[temp] = sch.students[temp1];
+	default:
+		log.error("Incorrect input in teacher edit function");
+		break;
+	}
+	return newTeam;
+}
+void saveEditedTeam(SCHOOL& sch, size_t n, LOG& log)
+{
+	sch.teams[n] = editTeam(sch, sch.teams[n], log);
+	log.info("Successfully edited student");
 }

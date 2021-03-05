@@ -125,9 +125,9 @@ TEACHER editTeacher(TEACHER teacher, LOG& log);
 //Save edited teacher
 void saveEditedTeacher(SCHOOL& sch, size_t n, LOG& log);
 //Edit an existing team
-TEAM editTeam(TEAM team);
+TEAM editTeam(SCHOOL& sch, TEAM team,LOG& log);
 //Save edited team
-void saveEditedTeam(SCHOOL& sch, size_t n);
+void saveEditedTeam(SCHOOL& sch, size_t n, LOG& log);
 
 void deleteStudent(SCHOOL& sch);
 void deleteTeacher(SCHOOL& sch);

@@ -339,7 +339,7 @@ TEAM editTeam(SCHOOL& sch, TEAM team, LOG& log)
 			break;
 		case 3:
 			newTeam.status = STATUS::ARCHIVED;
-			break
+			break;
 		default:
 			log.error("Incorrect input in teacher edit function");
 			break;

@@ -1,0 +1,7 @@
+2021-02-06 22:16:42 INFO     Successfully created students
+2021-02-06 22:16:42 INFO     Successfully created one teacher
+2021-02-06 22:16:42 INFO     Successfully created one team
+2021-02-06 22:16:46 INFO     Successfully printed all teachers
+2021-02-06 22:16:52 INFO     Successfully printed all students
+2021-02-06 22:16:54 INFO     Exiting program
+

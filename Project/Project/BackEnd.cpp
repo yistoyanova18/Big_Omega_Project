@@ -348,7 +348,7 @@ TEAM editTeam(SCHOOL& sch, TEAM team, LOG& log)
 	case 4:
 		int temp1;
 		cout << "Change student(ID in team) "; cin >> temp; cout << " with student(ID in school) "; cin >> temp1;
-		newTeam.participants[temp] = sch.students[temp1];
+		newTeam.participants[temp] = sch.students[temp1].id;
 	default:
 		log.error("Incorrect input in teacher edit function");
 		break;

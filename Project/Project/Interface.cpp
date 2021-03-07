@@ -154,6 +154,16 @@ void printDeletingMenu()
 }
 
 
+void printGoodbyeMessage()
+{
+	cout << "  ___   ___   ___   ___  ___ __   __ ___ " << endl;
+	cout << " / __| / _ \\ / _ \\ |   \\| _ )\\ \\ / /| __|" << endl;
+	cout << "| (_ || (_) | (_) || |) | _ \\ \\ V / | _| " << endl;
+	cout << " \\___| \\___/ \\___/ |___/|___/  |_|  |___|" << endl;
+}
+
+
+
 bool mainMenu(SCHOOL& sch, LOG &log)
 {
 	size_t temp;
@@ -445,6 +455,7 @@ bool mainMenu(SCHOOL& sch, LOG &log)
 		break;
 	case 0:
 		log.info("Exiting program\n");
+		printGoodbyeMessage();
 		return false;
 		break;
 	default:

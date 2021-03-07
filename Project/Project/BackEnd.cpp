@@ -362,13 +362,13 @@ void saveEditedTeam(SCHOOL& sch, size_t n, LOG& log)
 }
 void deleteStudent(SCHOOL& sch, int n)
 {
-	sch.students.erase(n);
+	sch.students.erase(sch.students.begin() + n);
 }
 void deleteTeacher(SCHOOL& sch, int n)
 {
-	sch.teachers.erase(n);
+	sch.teachers.erase(sch.teachers.begin() + n);
 }
 void deleteTeam(SCHOOL& sch, int n)
 {
-	sch.teams.erase(n);
+	sch.teams.erase(sch.teams.begin() + n);
 }

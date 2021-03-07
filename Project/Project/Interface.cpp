@@ -315,24 +315,33 @@ bool mainMenu(SCHOOL& sch, LOG &log)
 		cout << "1. Delete student\n";
 		cout << "2. Delete teacher\n";
 		cout << "3. Delete team\n";
+		cout << "0. Exit\n\n:";
 		switch (temp)
 		{
 		case 1:
 			cout << "ID of student for deletion"; cin >> temp;
 			deleteStudent(sch, temp);
 			system("CLS");
+			return true;
 			break;
 		case 2:
 			cout << "ID of teacher for deletion"; cin >> temp;
 			deleteTeacher(sch, temp);
-			system("CLS")
+			system("CLS");
+			return true;
 			break;
 		case 3:
 			cout << "ID of team for deletion"; cin >> temp;
 			deleteTeam(sch, temp);
+			return true;
 			break;
+		case 0:
+			log.info("Going back to main menu");
+			return true;
 		default:
 			log.error("Incorrect input in deletion menu");
+			log.info("Going back to main menu");
+			return true;
 			break;
 		}
 		break;

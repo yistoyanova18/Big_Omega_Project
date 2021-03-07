@@ -5,3 +5,7 @@
 2021-02-06 22:16:52 INFO     Successfully printed all students
 2021-02-06 22:16:54 INFO     Exiting program
 
+2021-02-07 22:21:19 INFO     Going back to main menu
+
+2021-02-07 22:21:23 INFO     Exiting program
+

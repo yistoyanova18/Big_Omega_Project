@@ -50,9 +50,34 @@ void printTeam(SCHOOL& sch, size_t num)
 	}
 }
 
+void printSpaces(int n)
+{
+	for (int i = 0; i < n; i++)
+	{
+		cout << " ";
+	}
+}
+
+void printLogo()
+{
+	printSpaces(20); cout << endl;
+	printSpaces(20); cout << "      _________" << endl;
+	printSpaces(20); cout << "    /  _______  \\ " << endl;
+	printSpaces(20); cout << "   /  /  ___  \\  \\" << endl;
+	printSpaces(20); cout << "  |  |  | _ )  |  | " << endl;
+	printSpaces(20); cout << "  |  |  | _ \\  |  | " << endl;
+	printSpaces(20); cout << "   \\  \\ |___/ /  /  " << endl;
+	printSpaces(20); cout << " ___\\  \\     /  /___ " << endl;
+	printSpaces(20); cout << "|_______|   |_______| " << endl;
+	printSpaces(20); cout << "WELCOME TO BIG OMEGA'S " << endl;
+	printSpaces(20); cout << "SCHOOL SORTING SYSTEM " << endl;
+	printSpaces(20); cout << endl << endl << endl;
+}
+
 bool mainMenu(SCHOOL& sch, LOG &log)
 {
 	size_t temp;
+	printLogo();
 	cout << "---------------+\n";
 	cout << "  1. Printing  |\n";
 	cout << "  2. Adding    |\n";

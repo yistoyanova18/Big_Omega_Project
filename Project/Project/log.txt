@@ -13,3 +13,12 @@
 2021-02-08 00:40:40 INFO     Going back to main menu
 2021-02-08 00:40:57 INFO     Exiting program
 
+2021-02-08 00:56:24 INFO     Going back to main menu
+2021-02-08 00:57:50 INFO     Going back to main menu
+2021-02-08 00:58:46 INFO     Going back to main menu
+
+2021-02-08 00:58:50 INFO     Going back to main menu
+
+2021-02-08 00:58:55 INFO     Going back to main menu
+2021-02-08 00:58:57 INFO     Exiting program
+

@@ -286,6 +286,7 @@ bool mainMenu(SCHOOL& sch, LOG &log)
 			break;
 		case 0:
 			log.info("Going back to main menu");
+			system("CLS");
 			return true;
 			break;
 		default:
@@ -363,6 +364,7 @@ bool mainMenu(SCHOOL& sch, LOG &log)
 			break;
 		case 0:
 			log.info("Going back to main menu\n");
+			system("CLS");
 			return true;
 			break;
 		default:
@@ -397,6 +399,7 @@ bool mainMenu(SCHOOL& sch, LOG &log)
 			break;
 		case 0:
 			log.info("Going back to main menu\n");
+			system("CLS");
 			return true;
 			break;
 		default:
@@ -431,6 +434,7 @@ bool mainMenu(SCHOOL& sch, LOG &log)
 			break;
 		case 0:
 			log.info("Going back to main menu");
+			system("CLS");
 			return true;
 		default:
 			log.error("Incorrect input in deletion menu");

@@ -137,6 +137,22 @@ void printEditingMenu()
 	cout << endl;
 }
 
+void printDeletingMenu()
+{
+	cout << endl << endl;
+	cout << "_______________" << endl;
+	cout << "   |           |   ____________   ____________   |___________|___" << endl;
+	cout << "___|___________|  |            |(|            |        |         " << endl;
+	cout << "         |        |  DELETING  |(| 1.Students |   _____|_________" << endl;
+	cout << "_________|_____   |            |(| 2.Teachers |  |           |   " << endl;
+	cout << "   |           |  |    MENU    |(| 3.Teams    |  |___________|___" << endl;
+	cout << "___|___________|  |            |(| 0.Exit     |        |         " << endl;
+	cout << "         |        |____________|(|____________|   _____|_________" << endl;
+	cout << "_________|_____                                  |           |   " << endl;
+	cout << "   |           |                                 |___________|___" << endl;
+	cout << endl;
+}
+
 
 bool mainMenu(SCHOOL& sch, LOG &log)
 {
@@ -391,10 +407,9 @@ bool mainMenu(SCHOOL& sch, LOG &log)
 		}
 		break;
 	case 4:
-		cout << "1. Delete student\n";
-		cout << "2. Delete teacher\n";
-		cout << "3. Delete team\n";
-		cout << "0. Exit\n\n:";
+		printDeletingMenu();
+		cout << "Ener yout choice: ";
+		cin >> temp;
 		switch (temp)
 		{
 		case 1:

@@ -360,3 +360,15 @@ void saveEditedTeam(SCHOOL& sch, size_t n, LOG& log)
 	sch.teams[n] = editTeam(sch, sch.teams[n], log);
 	log.info("Successfully edited student");
 }
+void deleteStudent(SCHOOL& sch, int n)
+{
+	sch.students.erase(n);
+}
+void deleteTeacher(SCHOOL& sch, int n)
+{
+	sch.teachers.erase(n);
+}
+void deleteTeam(SCHOOL& sch, int n)
+{
+	sch.teams.erase(n);
+}

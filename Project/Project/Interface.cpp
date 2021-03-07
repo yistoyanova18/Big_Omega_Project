@@ -296,6 +296,8 @@ bool mainMenu(SCHOOL& sch, LOG &log)
 			return true;
 			break;
 		case 3:
+			cout << "ID of team for editing: "; cin >> temp;
+			saveEditedTeam(sch, temp, log);
 			return true;
 			break;
 		case 0:
@@ -306,6 +308,31 @@ bool mainMenu(SCHOOL& sch, LOG &log)
 			log.error("Incorrect input in editing menu");
 			log.info("Going back to main menu");
 			return true;
+			break;
+		}
+		break;
+	case 4:
+		cout << "1. Delete student\n";
+		cout << "2. Delete teacher\n";
+		cout << "3. Delete team\n";
+		switch (temp)
+		{
+		case 1:
+			cout << "ID of student for deletion"; cin >> temp;
+			deleteStudent(sch, temp);
+			system("CLS");
+			break;
+		case 2:
+			cout << "ID of teacher for deletion"; cin >> temp;
+			deleteTeacher(sch, temp);
+			system("CLS")
+			break;
+		case 3:
+			cout << "ID of team for deletion"; cin >> temp;
+			deleteTeam(sch, temp);
+			break;
+		default:
+			log.error("Incorrect input in deletion menu");
 			break;
 		}
 		break;

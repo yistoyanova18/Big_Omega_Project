@@ -130,7 +130,7 @@ TEAM editTeam(SCHOOL& sch, TEAM team,LOG& log);
 //Save edited team
 void saveEditedTeam(SCHOOL& sch, size_t n, LOG& log);
 
-void deleteStudent(SCHOOL& sch);
-void deleteTeacher(SCHOOL& sch);
-void deleteTeam(SCHOOL& sch);
+void deleteStudent(SCHOOL& sch, int n);
+void deleteTeacher(SCHOOL& sch, int n);
+void deleteTeam(SCHOOL& sch, int n);
 string Add0BeforeIntSmallerThan10(int num);

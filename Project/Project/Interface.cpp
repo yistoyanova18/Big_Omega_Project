@@ -105,6 +105,22 @@ void printPrintMenu()
 	cout << endl;
 }
 
+void printAddingMenu()
+{
+	cout << endl << endl;
+	cout << "_______________" << endl;
+	cout << "   |           |   ____________   ____________   |___________|___" << endl;
+	cout << "___|___________|  |            |(|            |        |         " << endl;
+	cout << "         |        |   ADDING   |(| 1.Students |   _____|_________" << endl;
+	cout << "_________|_____   |            |(| 2.Teachers |  |           |   " << endl;
+	cout << "   |           |  |    MENU    |(| 3.Teams    |  |___________|___" << endl;
+	cout << "___|___________|  |            |(| 0.Exit     |        |         " << endl;
+	cout << "         |        |____________|(|____________|   _____|_________" << endl;
+	cout << "_________|_____                                  |           |   " << endl;
+	cout << "   |           |                                 |___________|___" << endl;
+	cout << endl;
+}
+
 
 bool mainMenu(SCHOOL& sch, LOG &log)
 {
@@ -248,10 +264,8 @@ bool mainMenu(SCHOOL& sch, LOG &log)
 		}
 		break;
 	case 2:
-		cout << "1. Add Student/s\n";
-		cout << "2. Add Teacher/s\n";
-		cout << "3. Add Team/s\n";
-		cout << "0. Exit\n\n:";
+		printAddingMenu();
+		cout << "Enter your choice: ";
 		cin >> temp;
 		switch (temp)
 		{

@@ -74,16 +74,23 @@ void printLogo()
 	printSpaces(20); cout << endl << endl << endl;
 }
 
+void printMainMenu()
+{
+	printSpaces(22); cout << "+---------------+\n";
+	printSpaces(22); cout << "|  1. Printing  |\n";
+	printSpaces(22); cout << "|  2. Adding    |\n";
+	printSpaces(22); cout << "|  3. Editing   |\n";
+	printSpaces(22); cout << "|  4. Deletion  |\n";
+	printSpaces(22); cout << "|  0. Exit      |\n"; 
+	printSpaces(22); cout << "+---------------+\n:";
+}
+
+
 bool mainMenu(SCHOOL& sch, LOG &log)
 {
 	size_t temp;
 	printLogo();
-	cout << "---------------+\n";
-	cout << "  1. Printing  |\n";
-	cout << "  2. Adding    |\n";
-	cout << "  3. Editing   |\n";
-	cout << "  4. Deletion  |\n";
-	cout << "  0. Exit      |\n---------------+\n:";
+	printMainMenu();
 	cin >> temp;
 	system("CLS");
 	switch (temp)

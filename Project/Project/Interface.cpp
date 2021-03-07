@@ -60,29 +60,33 @@ void printSpaces(int n)
 
 void printLogo()
 {
-	printSpaces(20); cout << endl;
-	printSpaces(20); cout << "      _________" << endl;
-	printSpaces(20); cout << "    /  _______  \\ " << endl;
-	printSpaces(20); cout << "   /  /  ___  \\  \\" << endl;
-	printSpaces(20); cout << "  |  |  | _ )  |  | " << endl;
-	printSpaces(20); cout << "  |  |  | _ \\  |  | " << endl;
-	printSpaces(20); cout << "   \\  \\ |___/ /  /  " << endl;
-	printSpaces(20); cout << " ___\\  \\     /  /___ " << endl;
-	printSpaces(20); cout << "|_______|   |_______| " << endl;
-	printSpaces(20); cout << "WELCOME TO BIG OMEGA'S " << endl;
-	printSpaces(20); cout << "SCHOOL SORTING SYSTEM " << endl;
-	printSpaces(20); cout << endl << endl << endl;
+	printSpaces(22); cout << endl;
+	printSpaces(22); cout << "      _________" << endl;
+	printSpaces(22); cout << "    /  _______  \\ " << endl;
+	printSpaces(22); cout << "   /  /  ___  \\  \\" << endl;
+	printSpaces(22); cout << "  |  |  | _ )  |  | " << endl;
+	printSpaces(22); cout << "  |  |  | _ \\  |  | " << endl;
+	printSpaces(22); cout << "   \\  \\ |___/ /  /  " << endl;
+	printSpaces(22); cout << " ___\\  \\     /  /___ " << endl;
+	printSpaces(22); cout << "|_______|   |_______| " << endl;
+	printSpaces(22); cout << "WELCOME TO  BIG OMEGA " << endl;
+	printSpaces(22); cout << "SCHOOL SORTING SYSTEM " << endl;
+	printSpaces(22); cout << endl;
 }
 
 void printMainMenu()
 {
-	printSpaces(22); cout << "+---------------+\n";
-	printSpaces(22); cout << "|  1. Printing  |\n";
-	printSpaces(22); cout << "|  2. Adding    |\n";
-	printSpaces(22); cout << "|  3. Editing   |\n";
-	printSpaces(22); cout << "|  4. Deletion  |\n";
-	printSpaces(22); cout << "|  0. Exit      |\n"; 
-	printSpaces(22); cout << "+---------------+\n:";
+	cout << "_______________" << endl;
+	cout << "   |           |   ____________   ____________   |___________|___" << endl;
+	cout << "___|___________|  |            |(|            |        |         " << endl;
+	cout << "         |        |            |(| 1.Printing |   _____|_________" << endl;
+	cout << "_________|_____   |    MAIN    |(| 2.Adding   |  |           |   " << endl;
+	cout << "   |           |  |            |(| 3.Editing  |  |___________|___" << endl;
+	cout << "___|___________|  |    MENU    |(| 4.Deletion |        |         " << endl;
+	cout << "         |        |            |(| 0.Exit     |   _____|_________" << endl;
+	cout << "_________|_____   |____________|(|____________|  |           |   " << endl;
+	cout << "   |           |                                 |___________|___" << endl;
+	cout << endl;
 }
 
 

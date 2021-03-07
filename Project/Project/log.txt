@@ -9,3 +9,4 @@
 
 2021-02-07 22:21:23 INFO     Exiting program
 
+2021-02-08 00:08:39 INFO     Going back to main menu

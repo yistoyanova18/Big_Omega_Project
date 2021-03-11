@@ -164,6 +164,7 @@ void printGoodbyeMessage()
 
 
 
+
 bool mainMenu(SCHOOL& sch, LOG &log)
 {
 	size_t temp;
@@ -181,7 +182,16 @@ bool mainMenu(SCHOOL& sch, LOG &log)
 		switch (temp)
 		{
 		case 1:
-			cout << "0.One/1.Multiple/2.All students? "; cin >> temp;
+			system("CLS");
+			cout << endl << endl << endl;
+			cout << "                ________________________ " << endl;
+			cout << "               |        PRINTING        |" << endl;
+			cout << "               |  0. One student        |" << endl; 
+			cout << "               |  1. Multiple students  |" << endl;
+			cout << "               |  2. All students       |" << endl;
+			cout << "               |________________________|" << endl;
+
+			cout << "       Enter your choice: "; cin >> temp;
 			switch (temp)
 			{
 			case 0:
@@ -220,7 +230,16 @@ bool mainMenu(SCHOOL& sch, LOG &log)
 			return true;
 			break;
 		case 2:
-			cout << "0.One/1.Multiple/2.All teachers? "; cin >> temp;
+			system("CLS");
+			cout << endl << endl << endl;
+			cout << "                ________________________ " << endl;
+			cout << "               |        PRINTING        |" << endl;
+			cout << "               |  0. One teacher        |" << endl;
+			cout << "               |  1. Multiple teachers  |" << endl;
+			cout << "               |  2. All teachers       |" << endl;
+			cout << "               |________________________|" << endl;
+
+			cout << "       Enter your choice: "; cin >> temp;
 			switch (temp)
 			{
 			case 0:
@@ -259,7 +278,16 @@ bool mainMenu(SCHOOL& sch, LOG &log)
 			return true;
 			break;
 		case 3:
-			cout << "0.One/1.Multiple/2.All teams? "; cin >> temp;
+			system("CLS");
+			cout << endl << endl << endl;
+			cout << "                ________________________ " << endl;
+			cout << "               |        PRINTING        |" << endl;
+			cout << "               |  0. One team           |" << endl;
+			cout << "               |  1. Multiple teams     |" << endl;
+			cout << "               |  2. All teams          |" << endl;
+			cout << "               |________________________|" << endl;
+
+			cout << "       Enter your choice: "; cin >> temp;
 			switch (temp)
 			{
 			case 0:

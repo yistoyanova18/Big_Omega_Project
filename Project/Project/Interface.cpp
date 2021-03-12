@@ -341,7 +341,15 @@ bool mainMenu(SCHOOL& sch, LOG &log)
 		switch (temp)
 		{
 		case 1:
-			cout << "Multiple students? (0/1)";
+			system("CLS");
+			cout << endl << endl << endl;
+			cout << "                ________________________ " << endl;
+			cout << "               |         ADDING         |" << endl;
+			cout << "               |  0. One student        |" << endl;
+			cout << "               |  1. Multiple students  |" << endl;
+			cout << "               |________________________|" << endl;
+
+			cout << "       Enter your choice: ";
 			cin >> temp;
 			if (temp)
 			{
@@ -361,7 +369,15 @@ bool mainMenu(SCHOOL& sch, LOG &log)
 			return true;
 			break;
 		case 2:
-			cout << "Multiple teachers?(0/1)";
+			system("CLS");
+			cout << endl << endl << endl;
+			cout << "                ________________________ " << endl;
+			cout << "               |         ADDING         |" << endl;
+			cout << "               |  0. One teacher        |" << endl;
+			cout << "               |  1. Multiple teachers  |" << endl;
+			cout << "               |________________________|" << endl;
+
+			cout << "       Enter your choice: ";
 			cin >> temp;
 			if (temp)
 			{
@@ -381,7 +397,15 @@ bool mainMenu(SCHOOL& sch, LOG &log)
 			return true;
 			break;
 		case 3:
-			cout << "Multiple teams?(0/1)";
+			system("CLS");
+			cout << endl << endl << endl;
+			cout << "                ________________________ " << endl;
+			cout << "               |         ADDING         |" << endl;
+			cout << "               |  0. One team           |" << endl;
+			cout << "               |  1. Multiple teams     |" << endl;
+			cout << "               |________________________|" << endl;
+
+			cout << "       Enter your choice: ";
 			cin >> temp;
 			if (temp)
 			{

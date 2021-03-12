@@ -165,7 +165,7 @@ TEAM makeNewTeam(SCHOOL& sch)
 	int temp;
 	cout << "ID of teacher: "; cin >> temp;
 	team.teacher = sch.teachers[temp];
-	cout << "How many students in team? "; cin >> temp;
+	cout << "How many students are in the team? "; cin >> temp;
 	int a;
 	for (int i = 0; i < temp; i++)
 	{
@@ -212,7 +212,20 @@ STUDENT editStudent(STUDENT student, LOG& log)
 {
 	STUDENT newStudent = student;
 	int temp;
-	cout << "What do you want to edit?\n1. Name\n2. Age\n3. Grade\n4. Status\n5.Team Role\n6. Email\n\n:";
+	
+	system("CLS");
+	cout << endl << endl << endl;
+	cout << "                ________________________ " << endl;
+	cout << "               |     EDITING STUDENT    |" << endl;
+	cout << "               |  1. Name               |" << endl;
+	cout << "               |  2. Age                |" << endl;
+	cout << "               |  3. Grade              |" << endl;
+	cout << "               |  4. Status             |" << endl;
+	cout << "               |  5. Team role          |" << endl;
+	cout << "               |  6. E-mail             |" << endl;
+	cout << "               |________________________|" << endl;
+
+	cout << "       Enter your choice: ";
 	do
 	{
 		cin >> temp;
@@ -277,7 +290,19 @@ STUDENT editStudent(STUDENT student, LOG& log)
 			log.error("Incorrect input in student edit func");
 			break;
 		}
-		cout << "Do you want to edit something else?(0/1)"; cin >> temp;
+		
+		system("CLS");
+		cout << endl << endl << endl;
+		cout << "                ________________________ " << endl;
+		cout << "               |    Would you like to   |" << endl;
+		cout << "               |   edit anything else?  |" << endl;
+		cout << "               |  1. Yes                |" << endl;
+		cout << "               |  0. No                 |" << endl;
+		cout << "               |________________________|" << endl;
+
+		cout << "       Enter your choice: ";
+		
+		cin >> temp;
 	} while (temp);
 	return newStudent;
 }
@@ -291,7 +316,14 @@ TEACHER editTeacher(TEACHER teacher, LOG& log)
 {
 	TEACHER newTeacher = teacher;
 	int temp;
-	cout << "What do you want to edit?\n1.Name\n2.E-mail\n\n:"; cin >> temp;
+	system("CLS");
+	cout << endl << endl << endl;
+	cout << "                ________________________ " << endl;
+	cout << "               |     EDITING TEACHER    |" << endl;
+	cout << "               |  1. Name               |" << endl;
+	cout << "               |  2. E-mail             |" << endl;
+	cout << "               |________________________|" << endl; 
+	cout << "       Enter your choice: "; cin >> temp;
 	switch (temp)
 	{
 	case 1:
@@ -316,19 +348,36 @@ TEAM editTeam(SCHOOL& sch, TEAM team, LOG& log)
 {
 	TEAM newTeam = team;
 	int temp;
-	cout << "What do you want to edit?\n1. Teacher\n2. Description\n3. Status\n4. Participants\n\n:"; cin >> temp;
+	cout << "What do you want to edit?\n1. Teacher\n2. Description\n3. Status\n4. Participants\n\n:";
+	system("CLS");
+	cout << endl << endl << endl;
+	cout << "                ________________________ " << endl;
+	cout << "               |      EDITING TEAM      |" << endl;
+	cout << "               |  1. Teacher            |" << endl;
+	cout << "               |  2. Description        |" << endl;
+	cout << "               |  3. Status             |" << endl;
+	cout << "               |  4. Participants       |" << endl;
+	cout << "               |________________________|" << endl;
+
+	cout << "       Enter your choice: ";
+	cin >> temp;
 	switch (temp)
 	{
 	case 1:
-		cout << "ID of new teacher: "; cin >> temp;
+		cout << endl << "ID of new teacher: "; cin >> temp;
 		newTeam.teacher = sch.teachers[temp];
 		break;
 	case 2:
-		cout << "New description: \n"; cin >> temp;
+		cout << endl << "New description of team: \n"; cin >> temp;
 		newTeam.desc = temp;
 		break;
 	case 3:
-		cout << "New Status(1,2,3): "; cin >> temp;
+		cout << endl << "New Status of team(1,2,3): " << endl;
+		cout << "       1. Not active " << endl;
+		cout << "       2. In use " << endl;
+		cout << "       3. Archived " << endl;
+		cout << "       Enter your choice: ";
+		cin >> temp;
 		switch (temp)
 		{
 		case 1:
@@ -347,7 +396,8 @@ TEAM editTeam(SCHOOL& sch, TEAM team, LOG& log)
 		break;
 	case 4:
 		int temp1;
-		cout << "Change student(ID in team) "; cin >> temp; cout << " with student(ID in school) "; cin >> temp1;
+		cout << endl << " Enter the ID of the student you want to change that is currently in the team: "; cin >> temp; 
+		cout << endl << " Enter the ID of a student from the scholl that will be the new participant: "; cin >> temp1;
 		newTeam.participants[temp] = sch.students[temp1].id;
 	default:
 		log.error("Incorrect input in teacher edit function");

@@ -353,7 +353,8 @@ bool mainMenu(SCHOOL& sch, LOG &log)
 			cin >> temp;
 			if (temp)
 			{
-				cout << "How many?\n"; cin >> temp;
+				system("CLS");
+				cout << endl << " How many students would you like to add?: "; cin >> temp;
 				for (size_t i = 0; i < temp; i++)
 				{
 					insertNewStudent(sch);
@@ -381,7 +382,8 @@ bool mainMenu(SCHOOL& sch, LOG &log)
 			cin >> temp;
 			if (temp)
 			{
-				cout << "How many?\n"; cin >> temp;
+				system("CLS");
+				cout << endl << " How many teachers would you like to add?: "; cin >> temp;
 				for (size_t i = 0; i < temp; i++)
 				{
 					insertNewTeacher(sch);
@@ -409,7 +411,8 @@ bool mainMenu(SCHOOL& sch, LOG &log)
 			cin >> temp;
 			if (temp)
 			{
-				cout << "How many?\n"; cin >> temp;
+				system("CLS");
+				cout << endl << " How many teams would you like to add?: "; cin >> temp;
 				for (size_t i = 0; i < temp; i++)
 				{
 					insertNewTeam(sch);

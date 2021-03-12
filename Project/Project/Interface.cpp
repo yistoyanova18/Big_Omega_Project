@@ -443,19 +443,20 @@ bool mainMenu(SCHOOL& sch, LOG &log)
 		switch (temp)
 		{
 		case 1:
-			cout << "ID of student for editing: "; cin >> temp;
+			system("CLS");
+			cout << "Enter the ID of the student you want to edit: "; cin >> temp;
 			saveEditedStudent(sch, temp, log);
 			system("CLS");
 			return true;
 			break;
 		case 2:
-			cout << "ID of teacher for editing: "; cin >> temp;
+			cout << "Enter the ID of the teacher you want to edit: : "; cin >> temp;
 			saveEditedTeacher(sch, temp, log);
 			system("CLS");
 			return true;
 			break;
 		case 3:
-			cout << "ID of team for editing: "; cin >> temp;
+			cout << "Enter the ID of the team you want to edit: : "; cin >> temp;
 			saveEditedTeam(sch, temp, log);
 			return true;
 			break;

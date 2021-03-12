@@ -4,8 +4,232 @@
 #include <vector>
 #include <stdio.h>
 #include <conio.h>
+#include <chrono>
+#include <thread>
 #include "Interface.h"
 using namespace std;
+
+void frame1()
+{
+	cout << endl << endl << endl << endl << endl << endl << endl << endl << endl << endl << endl << endl;
+	cout << "_______________" << endl;
+	cout << "   |           |                  ____________   |___________|___" << endl;
+	cout << "___|___________|                (|            |        |         " << endl;
+	cout << "         |                      (|            |   _____|_________" << endl;
+	cout << "_________|_____                 (|            |  |           |   " << endl;
+	cout << "   |           |                (|            |  |___________|___" << endl;
+	cout << "___|___________|                (|            |        |         " << endl;
+	cout << "         |                      (|            |   _____|_________" << endl;
+	cout << "_________|_____                 (|____________|  |           |   " << endl;
+	cout << "   |           |                                 |___________|___" << endl;
+	cout << endl;
+}
+
+void frame2()
+{
+	cout << endl << endl << endl << endl << endl << endl << endl << endl << endl << endl << endl << endl;
+	cout << "_______________                       ____                                      " << endl;
+	cout << "   |           |                  ___/    |___   |___________|___" << endl;
+	cout << "___|___________|                (|        |   |        |         " << endl;
+	cout << "         |                      (|        |   |   _____|_________" << endl;
+	cout << "_________|_____                 (|        |   |  |           |   " << endl;
+	cout << "   |           |                (|        |   |  |___________|___" << endl;
+	cout << "___|___________|                (|        |   |        |         " << endl;
+	cout << "         |                      (|        |   |   _____|_________" << endl;
+	cout << "_________|_____                 (|___     |___|  |           |   " << endl;
+	cout << "   |           |                     \\____|      |___________|___" << endl;
+	cout << endl;
+}
+
+void frame3()
+{
+	cout << endl << endl << endl << endl << endl << endl << endl << endl << endl << endl << endl << endl;
+	cout << "_______________                     ___/|                                       " << endl;
+	cout << "   |           |                  _/    |_____   |___________|___" << endl;
+	cout << "___|___________|                (|      |     |        |         " << endl;
+	cout << "         |                      (|      |     |   _____|_________" << endl;
+	cout << "_________|_____                 (|      |     |  |           |   " << endl;
+	cout << "   |           |                (|      |     |  |___________|___" << endl;
+	cout << "___|___________|                (|      |     |        |         " << endl;
+	cout << "         |                      (|      |     |   _____|_________" << endl;
+	cout << "_________|_____                 (|_     |_____|  |           |   " << endl;
+	cout << "   |           |                   \\___ |        |___________|___" << endl;
+	cout << "                                       \\|                       " << endl;
+	cout << endl;
+}
+
+void frame4()
+{
+	cout << endl << endl << endl << endl << endl << endl << endl << endl << endl << endl << endl << endl;
+	cout << "_______________                     _/|                                         " << endl;
+	cout << "   |           |                  _/  |_______   |___________|___" << endl;
+	cout << "___|___________|                (|    |       |        |         " << endl;
+	cout << "         |                      (|    |       |   _____|_________" << endl;
+	cout << "_________|_____                 (|    |       |  |           |   " << endl;
+	cout << "   |           |                (|    |       |  |___________|___" << endl;
+	cout << "___|___________|                (|    |       |        |         " << endl;
+	cout << "         |                      (|    |       |   _____|_________" << endl;
+	cout << "_________|_____                 (|_   |_______|  |           |   " << endl;
+	cout << "   |           |                   \\_ |          |___________|___" << endl;
+	cout << "                                     \\|                         " << endl;
+	cout << endl;
+}
+
+void frame5()
+{
+	cout << endl << endl << endl << endl << endl << endl << endl << endl << endl << endl << endl << endl;
+	cout << "_______________                    /|                                           " << endl;
+	cout << "   |           |                  / |_________   |___________|___" << endl;
+	cout << "___|___________|                (|  |         |        |         " << endl;
+	cout << "         |                      (|  |         |   _____|_________" << endl;
+	cout << "_________|_____                 (|  |         |  |           |   " << endl;
+	cout << "   |           |                (|  |         |  |___________|___" << endl;
+	cout << "___|___________|                (|  |         |        |         " << endl;
+	cout << "         |                      (|  |         |   _____|_________" << endl;
+	cout << "_________|_____                 (|  |_________|  |           |   " << endl;
+	cout << "   |           |                  \\ |            |___________|___" << endl;
+	cout << "                                   \\|                           " << endl;
+	cout << endl;
+}
+
+void frame6()
+{
+	cout << endl << endl << endl << endl << endl << endl << endl << endl << endl << endl << endl << endl;
+	cout << "_______________              |\\                                 " << endl;
+	cout << "   |           |             | \\  ____________   |___________|___" << endl;
+	cout << "___|___________|             |  (|            |        |         " << endl;
+	cout << "         |                   |  (|            |   _____|_________" << endl;
+	cout << "_________|_____              |  (|            |  |           |   " << endl;
+	cout << "   |           |             |  (|            |  |___________|___" << endl;
+	cout << "___|___________|             |  (|            |        |         " << endl;
+	cout << "         |                   |  (|            |   _____|_________" << endl;
+	cout << "_________|_____              |  (|____________|  |           |   " << endl;
+	cout << "   |           |             | /                 |___________|___" << endl;
+	cout << "                             |/                                  " << endl;
+	cout << endl;
+}
+
+void frame7()
+{
+	cout << endl << endl << endl << endl << endl << endl << endl << endl << endl << endl << endl << endl;
+	cout << "_______________             |\\_                                 " << endl;
+	cout << "   |           |            |  \\  ____________   |___________|___" << endl;
+	cout << "___|___________|            |   (|            |        |         " << endl;
+	cout << "         |                  |   (|            |   _____|_________" << endl;
+	cout << "_________|_____             |   (|            |  |           |   " << endl;
+	cout << "   |           |            |   (|            |  |___________|___" << endl;
+	cout << "___|___________|            |   (|            |        |         " << endl;
+	cout << "         |                  |   (|            |   _____|_________" << endl;
+	cout << "_________|_____             |   (|____________|  |           |   " << endl;
+	cout << "   |           |            | _/                 |___________|___" << endl;
+	cout << "                            |/                                   " << endl;
+	cout << endl;
+}
+
+void frame8()
+{
+	cout << endl << endl << endl << endl << endl << endl << endl << endl << endl << endl << endl << endl;
+	cout << "_______________           |\\__                                  " << endl;
+	cout << "   |           |          |   \\_  ____________   |___________|___" << endl;
+	cout << "___|___________|          |     (|            |        |         " << endl;
+	cout << "         |                |     (|            |   _____|_________" << endl;
+	cout << "_________|_____           |     (|            |  |           |   " << endl;
+	cout << "   |           |          |     (|            |  |___________|___" << endl;
+	cout << "___|___________|          |     (|            |        |         " << endl;
+	cout << "         |                |     (|            |   _____|_________" << endl;
+	cout << "_________|_____           |    _(|____________|  |           |   " << endl;
+	cout << "   |           |          | __/                  |___________|___" << endl;
+	cout << "                          |/                                     " << endl;
+	cout << endl;
+}
+
+void frame9()
+{
+	cout << endl << endl << endl << endl << endl << endl << endl << endl << endl << endl << endl << endl;
+	cout << "_______________          ____                                                           " << endl;
+	cout << "   |           |        |    \\___ ____________   |___________|___" << endl;
+	cout << "___|___________|        |       (|            |        |         " << endl;
+	cout << "         |              |       (|            |   _____|_________" << endl;
+	cout << "_________|_____         |       (|            |  |           |   " << endl;
+	cout << "   |           |        |       (|            |  |___________|___" << endl;
+	cout << "___|___________|        |       (|            |        |         " << endl;
+	cout << "         |              |       (|            |   _____|_________" << endl;
+	cout << "_________|_____         |    ___(|____________|  |           |   " << endl;
+	cout << "   |           |        |___/                    |___________|___" << endl;
+	cout << "                                                                 " << endl;
+	cout << endl;
+}
+
+void frame10()
+{
+	cout << endl << endl << endl << endl << endl << endl << endl << endl << endl << endl << endl << endl;
+	cout << "_______________          __                                                             " << endl;
+	cout << "   |           |        |  \\_____ ____________   |___________|___" << endl;
+	cout << "___|___________|        |       (|            |        |         " << endl;
+	cout << "         |              |       (|            |   _____|_________" << endl;
+	cout << "_________|_____         |       (|            |  |           |   " << endl;
+	cout << "   |           |        |       (|            |  |___________|___" << endl;
+	cout << "___|___________|        |       (|            |        |         " << endl;
+	cout << "         |              |       (|            |   _____|_________" << endl;
+	cout << "_________|_____         |  _____(|____________|  |           |   " << endl;
+	cout << "   |           |        |_/                      |___________|___" << endl;
+	cout << "                                                                 " << endl;
+	cout << endl;
+}
+
+void frame11()
+{
+	cout << endl << endl << endl << endl << endl << endl << endl << endl << endl << endl << endl << endl;
+	cout << "_______________" << endl;
+	cout << "   |           |   ____________   ____________   |___________|___" << endl;
+	cout << "___|___________|  |            |(|            |        |         " << endl;
+	cout << "         |        |            |(|            |   _____|_________" << endl;
+	cout << "_________|_____   |            |(|            |  |           |   " << endl;
+	cout << "   |           |  |            |(|            |  |___________|___" << endl;
+	cout << "___|___________|  |            |(|            |        |         " << endl;
+	cout << "         |        |            |(|            |   _____|_________" << endl;
+	cout << "_________|_____   |____________|(|____________|  |           |   " << endl;
+	cout << "   |           |                                 |___________|___" << endl;
+	cout << endl;
+}
+
+void animation()
+{
+	this_thread::sleep_for(chrono::milliseconds(1000));
+	frame1();
+	this_thread::sleep_for(chrono::milliseconds(15));
+	system("CLS");
+	frame2();
+	this_thread::sleep_for(chrono::milliseconds(15));
+	system("CLS");
+	frame3();
+	this_thread::sleep_for(chrono::milliseconds(15));
+	system("CLS");
+	frame4();
+	this_thread::sleep_for(chrono::milliseconds(15));
+	system("CLS");
+	frame5();
+	this_thread::sleep_for(chrono::milliseconds(15));
+	system("CLS");
+	frame6();
+	this_thread::sleep_for(chrono::milliseconds(15));
+	system("CLS");
+	frame7();
+	this_thread::sleep_for(chrono::milliseconds(15));
+	system("CLS");
+	frame8();
+	this_thread::sleep_for(chrono::milliseconds(15));
+	system("CLS");
+	frame9();
+	this_thread::sleep_for(chrono::milliseconds(15));
+	system("CLS");
+	frame10();
+	this_thread::sleep_for(chrono::milliseconds(15));
+	system("CLS");
+	frame11();
+	this_thread::sleep_for(chrono::milliseconds(15));
+	system("CLS");
+}
 
 void printStudent(SCHOOL& sch,size_t num)
 {
@@ -168,6 +392,7 @@ void printGoodbyeMessage()
 bool mainMenu(SCHOOL& sch, LOG &log)
 {
 	size_t temp;
+	animation();
 	printLogo();
 	printMainMenu();
 	cout << "Enter your choice: ";

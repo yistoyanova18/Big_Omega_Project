@@ -85,10 +85,18 @@ STUDENT makeNewStudent()
 	STUDENT student;
 	student.id = idSt;
 	idSt++;
-	cin >> student.name.firstName;
-	cin >> student.name.lastName;
-	cin >> student.age;
-	cin >> student.grade;
+	system("CLS");
+	cout << endl;
+	cout << " Enter the student's first name: ";  cin >> student.name.firstName;
+	cout << " Enter the student's last name: ";  cin >> student.name.lastName;
+	cout << " Enter the studen's age: ";  cin >> student.age;
+	cout << " Enter the student's grade (letter): ";  cin >> student.grade;
+	cout << " Enter the student's team status: " << endl;
+	cout << "     0. Free" << endl;
+	cout << "     1. In team" << endl;
+	cout << "     2. Unavailable" << endl;
+	cout << "     3. Looking" << endl;
+	cout << " Enter your choice: ";
 	cin >> temp;
 	switch (temp)
 	{
@@ -108,6 +116,12 @@ STUDENT makeNewStudent()
 		throw "Incorrect input";
 		break;
 	}
+	cout << " Enter the student's team role: " << endl;
+	cout << "     0. Scrum trainer" << endl;
+	cout << "     1. Backend developer" << endl;
+	cout << "     2. Frontend developer" << endl;
+	cout << "     3. QA Engineer" << endl;
+	cout << " Enter your choice: ";
 	cin >> temp;
 	switch (temp)
 	{
@@ -127,7 +141,7 @@ STUDENT makeNewStudent()
 		throw "Incorrect input";
 		break;
 	}
-	cin >> student.email;
+	cout << " Enter the student's email: "; cin >> student.email;
 	return student;
 
 }
@@ -144,9 +158,11 @@ TEACHER makeNewTeacher()
 	TEACHER t;
 	t.id = idTeach;
 	idTeach++;
-	cin >> t.name.firstName;
-	cin >> t.name.lastName;
-	cin >> t.email;
+	system("CLS");
+	cout << endl;
+	cout << " Enter the teacher's first name: ";  cin >> t.name.firstName;
+	cout << " Enter the teacher's last name: ";  cin >> t.name.lastName;
+	cout << " Enter the teacher's email"; cin >> t.email;
 	return t;
 }
 void insertNewTeacher(SCHOOL& sch, size_t n)
@@ -163,13 +179,15 @@ TEAM makeNewTeam(SCHOOL& sch)
 	team.id = idTeam;
 	idTeam++;
 	int temp;
-	cout << "ID of teacher: "; cin >> temp;
+	system("CLS");
+	cout << endl;
+	cout << " Enter the teacher's ID: "; cin >> temp;
 	team.teacher = sch.teachers[temp];
-	cout << "How many students in team? "; cin >> temp;
+	cout << " How many students are in the team? "; cin >> temp;
 	int a;
 	for (int i = 0; i < temp; i++)
 	{
-		cout << "ID of student: "; cin >> a;
+		cout << "Enter the student's ID: "; cin >> a;
 		sch.students[a].status = "In team";
 		team.participants.push_back(a);
 	}
@@ -232,17 +250,25 @@ STUDENT editStudent(STUDENT student, LOG& log)
 		switch (temp)
 		{
 		case 1:
-			cout << "\n";
-			cin >> newStudent.name.firstName >> newStudent.name.lastName;
+			cout << endl;
+			cout << " Enter the student's first and last name separated by a space: ";  cin >> newStudent.name.firstName >> newStudent.name.lastName;
 			break;
 		case 2:
-			cin >> newStudent.age;
+			cout << endl;
+			cout << " Enter the student's age: ";  cin >> newStudent.age;
 			break;
 		case 3:
-			cin >> newStudent.grade;
+			cout << endl;
+			cout << " Enter the student's grade (letter): "; cin >> newStudent.grade;
 			break;
 		case 4:
-			cin >> temp;
+			cout << endl;
+			cout << " Choose a new status: " << endl;
+			cout << "     1. Free" << endl;
+			cout << "     2. In team" << endl;
+			cout << "     3. Unavailable" << endl;
+			cout << "     4. Looking" << endl;
+			cout << " Enter your choice: "; cin >> temp;
 			switch (temp)
 			{
 			case 0:
@@ -263,7 +289,13 @@ STUDENT editStudent(STUDENT student, LOG& log)
 			}
 			break;
 		case 5:
-			cin >> temp;
+			cout << endl;
+			cout << " Choose a new role: " << endl;
+			cout << "     1. Scrum trainer" << endl;
+			cout << "     2. Backend developer" << endl;
+			cout << "     3. Frontend developer" << endl;
+			cout << "     4. QA Engineer" << endl;
+			cout << " Enter your choice: "; cin >> temp;
 			switch (temp)
 			{
 			case 0:
@@ -284,7 +316,7 @@ STUDENT editStudent(STUDENT student, LOG& log)
 			}
 			break;
 		case 6:
-			cin >> newStudent.email;
+			cout << " Enter the new e-mail: "; cin >> newStudent.email;
 			break;
 		default:
 			log.error("Incorrect input in student edit func");
@@ -327,10 +359,12 @@ TEACHER editTeacher(TEACHER teacher, LOG& log)
 	switch (temp)
 	{
 	case 1:
-		cin >> newTeacher.name.firstName >> newTeacher.name.lastName;
+		cout << endl;
+		cout << " Enter the teacher's first and last name separated by a space: "; cin >> newTeacher.name.firstName >> newTeacher.name.lastName;
 		break;
 	case 2:
-		cin >> newTeacher.email;
+		cout << endl;
+		cout << " Enter the new e-mail: "; cin >> newTeacher.email;
 		break;
 	default:
 		log.error("Incorrect input in teacher function");
@@ -348,7 +382,7 @@ TEAM editTeam(SCHOOL& sch, TEAM team, LOG& log)
 {
 	TEAM newTeam = team;
 	int temp;
-	cout << "What do you want to edit?\n1. Teacher\n2. Description\n3. Status\n4. Participants\n\n:";
+	
 	system("CLS");
 	cout << endl << endl << endl;
 	cout << "                ________________________ " << endl;
@@ -364,19 +398,19 @@ TEAM editTeam(SCHOOL& sch, TEAM team, LOG& log)
 	switch (temp)
 	{
 	case 1:
-		cout << endl << "ID of new teacher: "; cin >> temp;
+		cout << endl << "Enter the ID of new the teacher: "; cin >> temp;
 		newTeam.teacher = sch.teachers[temp];
 		break;
 	case 2:
-		cout << endl << "New description of team: \n"; cin >> temp;
+		cout << endl << "Enter the new description of the team: \n"; cin >> temp;
 		newTeam.desc = temp;
 		break;
 	case 3:
-		cout << endl << "New Status of team(1,2,3): " << endl;
+		cout << endl << " Enter new status of team: " << endl;
 		cout << "       1. Not active " << endl;
 		cout << "       2. In use " << endl;
 		cout << "       3. Archived " << endl;
-		cout << "       Enter your choice: ";
+		cout << " Enter your choice: ";
 		cin >> temp;
 		switch (temp)
 		{
